@@ -22,9 +22,7 @@
 ### 3. Ejecuta el Script 
 
 
-.\.venv\Scripts\activate
+>.\.venv\Scripts\activate
 
 
-
-
-python ascii_converter.py --input test.jpg --width 100
+> python ascii_converter.py --input test.jpg --width 100
