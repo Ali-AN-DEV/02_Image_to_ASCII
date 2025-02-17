@@ -1,17 +1,16 @@
 import argparse
 from PIL import Image
 
-def cargar_imagen (image_path): 
+def cargar_imagen(image_path): 
     return Image.open(image_path) 
 
-def ajustar_imagen (image, new_width = 100): 
+def ajustar_imagen(image, new_width=100): 
     width, height = image.size 
     aspect_ratio = height / width
     new_height = int(aspect_ratio * new_width * 0.5)
     return image.resize((new_width, new_height), Image.Resampling.LANCZOS)
 
-def convertir_ascii (image, ascii_chars): 
-    """Convertimos la imagen a ASCII"""
+def convertir_ascii(image, ascii_chars): 
     grayscale_image = image.convert('L')
     pixels = grayscale_image.getdata()
     ascii_str = ''
@@ -26,12 +25,12 @@ def convertir_ascii (image, ascii_chars):
 def main(): 
     parser = argparse.ArgumentParser(description="Convierte imágenes a arte ASCII")
     parser.add_argument('--input', required=True, help='Dirección de la imagen')
-    parser.add_argument('--output', 'Dirección del output ASCII') 
+    parser.add_argument('--output', help='Dirección del output ASCII')  # Fixed line
     parser.add_argument('--width', type=int, default=100, help='Anchura del output ASCII')
-    parser.add_argument('--chars', default='@%#*+=-:. ', help='Caracteres ASCII de más oscuro a claro') 
+    parser.add_argument('--chars', default='@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`', help='Caracteres ASCII de más oscuro a claro') 
     args = parser.parse_args()
 
-    image = cargar_imagen(args.input) 
+    image = cargar_imagen(args.input)
     image = ajustar_imagen(image, args.width) 
     arte_ascii = convertir_ascii(image, args.chars)  
 
@@ -41,6 +40,5 @@ def main():
     else: 
         print(arte_ascii)
 
-if __name__ == '__name__': 
+if __name__ == '__main__':  # Fixed line
     main()
-    
