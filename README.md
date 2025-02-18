@@ -1,28 +1,84 @@
-## Image to ASCII converter
+# Convertidor de Imágenes a Arte ASCII
 
- ### Instalación 
+> Convierte imágenes a arte ASCII con palestas de grises de 10 o 70 niveles 
 
-### 1. Crea un entorno virtyal y activalo 
->''python -m venv .venv''
+## Características
+- Compatible con formatos de imagen comunes como JPG y PNG.
+- Ancho de salida ajustable (columnas).
+- Factor de escala personalizable para controlar la relación de aspecto.
+- Dos modos de escala de grises: 10 niveles (básico) y 70 niveles (detallado).
 
+## Instalación
 
->.\.venv\Scripts\activate
+### Requisitos Previos
+- Python 3.6 o superior
+- Administrador de paquetes `pip`
 
+### Instalación de Dependencias
+Se recomienda crear un entorno virtual para evitar conflictos con otras bibliotecas.
 
-### 2. Instala las dependencias
+#### Clonar el repositorio
+```bash
+git clone https://github.com/yourusername/image-to-ascii.git
+cd image-to-ascii
+```
 
-> python -m pip install --upgrade pip
+#### Crear y activar un entorno virtual
+```bash
+# En Windows:
+python -m venv .venv
+.\.venv\Scripts\activate
 
+# En macOS/Linux:
+python -m venv .venv
+source .venv/bin/activate
+```
 
-> python -m pip install --upgrade pip
+#### Instalar dependencias
+```bash
+pip install pillow numpy
+```
 
-> pip install pylance 
+## Uso
+Para ejecutar el programa, usa el siguiente comando:
+```bash
+python ascii_art.py --file <ruta-de-la-imagen> [--cols <columnas>] [--scale <factor>] [--more]
+```
 
+### Argumentos
+#### Obligatorios:
+- `--file <ruta-de-la-imagen>`: Ruta al archivo de imagen de entrada.
 
-### 3. Ejecuta el Script 
+#### Opcionales:
+- `--cols <columnas>`: Número de columnas de ASCII en la salida (por defecto: 80).
+- `--scale <factor>`: Factor de escala en altura para ajustar la proporción de aspecto (por defecto: 0.43).
+- `--more`: Utiliza la escala de grises de 70 niveles en lugar de 10 niveles.
 
+### Ejemplos
+**Conversión básica (10 niveles):**
+```bash
+python ascii_art.py --file gato.jpg --cols 100
+```
 
->.\.venv\Scripts\activate
+**Conversión detallada (70 niveles):**
+```bash
+python ascii_art.py --file paisaje.png --cols 120 --scale 0.5 --more
+```
 
+**Guardar la salida en un archivo:**
+```bash
+python ascii_art.py --file entrada.jpg --more > salida.txt
+```
 
-> python ascii_converter.py --input test.jpg --width 100
+## Consejos de Configuración
+Para obtener mejores resultados:
+- Usa `--scale 0.5` para mantener una relación de aspecto cuadrada.
+- Prueba con `--cols 80-120` para un tamaño óptimo en terminales estándar.
+- Usa `--more` para mejorar la calidad en imágenes con texturas detalladas.
+- Las imágenes con alto contraste ofrecen mejores resultados.
+- Las imágenes a color se convierten automáticamente a escala de grises.
+
+---
+
+Con esta guía, deberías poder instalar y ejecutar el convertidor de imágenes a arte ASCII sin problemas. ¡Disfruta experimentando con tus imágenes!
+
