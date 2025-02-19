@@ -77,8 +77,3 @@ Para obtener mejores resultados:
 - Usa `--more` para mejorar la calidad en imágenes con texturas detalladas.
 - Las imágenes con alto contraste ofrecen mejores resultados.
 - Las imágenes a color se convierten automáticamente a escala de grises.
-
----
-
-Con esta guía, deberías poder instalar y ejecutar el convertidor de imágenes a arte ASCII sin problemas. ¡Disfruta experimentando con tus imágenes!
-
